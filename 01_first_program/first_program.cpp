@@ -8,7 +8,7 @@ using std::cout;
 
 int main(void){
 
-    //cd.. goes to the parent folder
+    //cd .. goes to the parent folder
 
 
     //print to the console

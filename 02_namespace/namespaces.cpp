@@ -12,7 +12,7 @@ namespace second{
 int main(void){
     
     first::a = 10;
-    std::cout << first::a << std::endl;
+    std::cout << "Testing: " << first::a << "!!!!"<< std::endl;
     return 0;
     
 }

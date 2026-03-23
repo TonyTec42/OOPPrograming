@@ -7,7 +7,7 @@ template<typename T>
 T smallest(const T& n1, const T& n2, const T& n3);
 
 template<typename T>
-void print(T& value);
+void print( T& value);
 void print(bool value);
 //find max
 template<typename T>
@@ -20,12 +20,13 @@ int main(){
     std::cout << "The smallest integer is: " << smallest(12.3, -4.5, 9.4) << std::endl;
     std::string s1 = "APPLE", s2 = "BANANA", s3 = "CHERRY";
      std::cout << "The smallest integer is: " << smallest(s1, s2, s3) << std::endl;
-    print("123");
+     int i4 = 5;
+    print(i4);
     print(true);
 
 
     //to do
-    
+
     return 0;
 
 
@@ -55,7 +56,7 @@ T smallest(const T& n1, const T& n2, const T& n3) {
     return smallest;
 }
 template<typename T>
-void print(T& value){
+void print( T& value){
     std::cout << "Generic value: " << value << std::endl;
 }
 void print(bool value){

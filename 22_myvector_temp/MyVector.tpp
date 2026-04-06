@@ -1,7 +1,10 @@
+#ifndef MYVECTOR_HPP
+#define MYVECTOR_HPP
 #include "MyVector.hpp"
 #include <iostream>
+template <typename T>
+MyVector<T>::MyVector(int capacity){
 
-MyVector::MyVector(int capacity){
     this->capacity = capacity;
     size = 0;
     elements = new int[capacity];
@@ -28,7 +31,7 @@ MyVector::~MyVector(){
         }
         std::cout << "]\n" << std::endl;
     }
-    void MyVector::push_back(int value){
+    void MyVector<T>::push_back(const &T value){
         //TODO cosnider the case when the vector is full and we need to resize it
         if(full()){
             //resize the vector by doubling its capacity
@@ -45,21 +48,24 @@ MyVector::~MyVector(){
         elements[size] = value;
         size++;
     }
-    bool MyVector::full() const{
+    template <typename T>
+    bool MyVector<T>::full() const{
         return size == capacity;
     }
-    bool MyVector::empty() const{
+    template <typename T>
+    bool MyVector<T>::empty() const{
         return size == 0;
     }
-    void MyVector::allocateMemory(int memory_size){
+    template <typename T>
+    void MyVector<T>::allocateMemory(int memory_size){
        
          //resize the vector by doubling its capacity
 
-            capacity = memory_size;
+            capacity == memory_size;
             //save the old address of the array
-            int* old_array = elements;
+            T* old_array = elements;
             //allocate new memory
-            elements = new int[capacity];
+            elements = new T[capacity];
             //copy the old elements to the new array
             for(int i = 0; i < size; i++){
                 elements[i] = old_array[i];

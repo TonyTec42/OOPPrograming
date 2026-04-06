@@ -1,57 +1,47 @@
-
 #ifndef POINT_HPP
 #define POINT_HPP
-class Point{
 
-    public:
-    Point(int x = 0, int y = 0);
+#include <string>
 
+class Point {
+public:
+    Point(int x = 0, int y = 0, const char* new_tag = nullptr);
+    ~Point();
 
-    //relational operators
-    bool operator==(const Point& other);
-    bool operator!=(const Point& other);
+    Point(const Point& other); // Copy constructor
 
-    //Operator []
-    int& operator[](int index) const;
-    //you can modify outside now
+    
+    // Relational operators
+    bool operator==(const Point& other) const;
+    bool operator!=(const Point& other) const;
 
+    // Operator []
+    int& operator[](int index);
 
+    // Arithmetic operators
+    Point operator+(const Point& other) const;
+    Point operator*(const Point& other) const; // TODO
+    Point operator-(const Point& other) const; // TODO
 
-    //arithmetic operators
-    Point operator+(const Point& other) const{
-        return Point(x + other.x, y + other.y);
-    }
-    Point operator-(const Point& other) const{
-        return Point(x - other.x, y - other.y);
-    }
-    Pointer operator*(const Point& other) const{
-        return Point(x * other.x, y * other.y);
-    }
-
-    Point operator+=(const Point & other){
-       Point temp(x,y);
-       *this = *this + other;
-       return *this;
-    }
-
-    //do the other operation symbols for the assignment....
-
-    //preincrement
-    Point operator++(){
-        ++x;
-        ++y;
-        return *this;
-    }
-    //post increment
-    Point operator++(int){
-        Point temp(*this);
-        ++(*this);
-        return temp;
-    }
+    // Arithmetic assignment operators
+    Point& operator+=(const Point& other);
+    Point& operator*=(const Point& other); // TODO
+    Point& operator-=(const Point& other); // TODO
+    //todo is for 
+    // Preincrement
+    Point operator++();
+    
+    // Postincrement
+    Point operator++(int);
 
 
-    private:
+
+    std::string toString() const;
+
+
+private:
     int x, y;
+    char* tag
 };
 
 #endif

@@ -10,7 +10,7 @@ public:
 
     Point(const Point& other); // Copy constructor
 
-    
+
     // Relational operators
     bool operator==(const Point& other) const;
     bool operator!=(const Point& other) const;
@@ -34,14 +34,16 @@ public:
     // Postincrement
     Point operator++(int);
 
-
+    //assignment opreator
+    Point& operator=(const Point& other);
 
     std::string toString() const;
 
-
+    friend std::istream& operator>>(std::istream& in, Point& p);
 private:
     int x, y;
     char* tag
 };
+std::ostream& operator<<(std::ostream& out, const Point& p);
 
 #endif
